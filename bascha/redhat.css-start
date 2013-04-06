@@ -1,31 +1,28 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald|Bangers|Press+Start+2P|Raleway+Dots|Vollkorn|Abril+Fatface);
 /**
- *  * Red Hat theme for reveal.js.
- *   * 
- *    * Copyright (C) 2011-2012 Matt Hicks
- *     */
+ * Red Hat theme for reveal.js.
+ * 
+ * Copyright (C) 2011-2012 Matt Hicks
+ */
 @font-face {
   font-family: 'OverpassBold';
-  src: url("https://www.redhat.com/s/fonts/overpass_bold-web.eot"),
-         url("https://www.redhat.com/s/fonts/overpass_bold-web.woff") format("woff"),
-         url("https://www.redhat.com/s/fonts/overpass_bold-web.ttf") format("truetype"),
-         url("https://www.redhat.com/s/fonts/overpass_bold-web.svg#webfontzAU82Ltw") format("svg");
+  src: url("../fonts/overpass-bold-wf.eot");
+  src: url("../fonts/overpass-bold-wf.eot?#iefix") format("eot"), url("../fonts/overpass-bold-wf.woff") format("woff"), url("../fonts/overpass-bold-wf.ttf") format("truetype"), url("../fonts/overpass-bold-wf.svg#webfontzRhIMntw") format("svg");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Overpass';
-  src: url("https://www.redhat.com/s/fonts/overpass_regular-web.eot"),
-         url("https://www.redhat.com/s/fonts/overpass_regular-web.woff") format("woff"),
-         url("https://www.redhat.com/s/fonts/overpass_regular-web.ttf") format("truetype"),
-         url("https://www.redhat.com/s/fonts/overpass_regular-web.svg#webfontLTZe4IYH") format("svg");
+  src: url("../fonts/overpass-wf.eot");
+  src: url("../fonts/overpass-wf.eot?#iefix") format("eot"), url("../fonts/overpass-wf.woff") format("woff"), url("../fonts/overpass-wf.ttf") format("truetype"), url("../fonts/overpass-wf.svg#webfontiqWxLEM5") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
 /*********************************************
- *  * GLOBAL STYLES
- *   *********************************************/
+ * GLOBAL STYLES
+ *********************************************/
 body {
   background: #e3e3e3;
   background: -moz-radial-gradient(center, circle cover, white 0%, #e3e3e3 100%);
@@ -51,8 +48,8 @@ body {
 }
 
 /*********************************************
- *  * HEADERS
- *   *********************************************/
+ * HEADERS
+ *********************************************/
 .reveal h1,
 .reveal h2,
 .reveal h3,
@@ -61,8 +58,8 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: black;
-  font-family: "OverpassBold", sans-serif !important;
-  line-height: 1.3em;
+  font-family: "Overpass", sans-serif;
+  line-height: 0.9em;
   letter-spacing: -0.05em;
   text-transform: none;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
@@ -72,15 +69,9 @@ body {
   text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
 }
 
-/***  OVERRIDE for section style header line-height ***/
-.reveal .slides > section > h3, .reveal .slides > section > section >  h3{
-	line-height: 1.3em;
-	margin-bottom: 25px;
-	}
-
 /*********************************************
- *  * LINKS
- *   *********************************************/
+ * LINKS
+ *********************************************/
 .reveal a:not(.image) {
   color: #3b759e;
   text-decoration: none;
@@ -104,8 +95,8 @@ body {
 }
 
 /*********************************************
- *  * IMAGES
- *   *********************************************/
+ * IMAGES
+ *********************************************/
 .reveal section img {
   margin: 15px;
   background: rgba(255, 255, 255, 0.12);
@@ -125,8 +116,8 @@ body {
 }
 
 /*********************************************
- *  * NAVIGATION CONTROLS
- *   *********************************************/
+ * NAVIGATION CONTROLS
+ *********************************************/
 .reveal .controls a {
   color: #333333;
 }
@@ -137,8 +128,8 @@ body {
 }
 
 /*********************************************
- *  * PROGRESS BAR
- *   *********************************************/
+ * PROGRESS BAR
+ *********************************************/
 .reveal .progress {
   background: rgba(0, 0, 0, 0.2);
 }
@@ -156,13 +147,9 @@ body {
   letter-spacing: -0.05em;
 }
 
-.reveal .slides>section.spider {
-  background-image: url(pics/Ecosystem_FINAL.png);
-}
-
 .footer {
   color: black;
-  font-family: 'Overpass',sans-serif;
+  font-family: 'Overpass';
 }
 
 .reveal h1 {
@@ -242,29 +229,28 @@ h4.middle2 {
 }
 
 .reveal .computer {
-  font-family: 'Courier';
+  font-family: 'Press Start 2P';
 }
 
 .reveal .comic {
-  font-family: 'Overpass', sans-serif;
+  font-family: 'Bangers';
   letter-spacing: 0em;
 }
 
 .reveal .spoken {
-  font-family: 'Overpass';
-  font-style: 'italic';
+  font-family: 'Oswald';
 }
 
 .reveal .quote {
-  font-family: 'Overpass' !important;
+  font-family: 'Vollkorn';
 }
 
 .reveal .date {
-  font-family: 'Overpass';
+  font-family: 'Abril Fatface';
 }
 
 .reveal .dotted {
-  font-family: 'Overpass';
+  font-family: 'Raleway Dots';
   letter-spacing: 0.1em;
   word-spacing: 0.3em;
 }
@@ -282,4 +268,3 @@ html {
   overflow-x: hidden !important;
   overflow-y: hidden !important;
 }
-
