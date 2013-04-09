@@ -93,10 +93,11 @@
           <p>grizzly shoutouts</p>
         </section>
 
-        <section data-state="video">
-          <video id="videoPlayer">
+        <section id="video_slide" data-state="video">
+          <video id="video_player">
             <source src=videos/small.ogv type=video/ogg>
           </video>
+          <div class="fragment"></div>
         </section>
 
         <section fullscreen-img="pics/shadowman.jpg" fullscreen-size="contain">
@@ -461,39 +462,42 @@
         ]
       });
 
-      Reveal.addEventListener( 'video', function() {
-          var v = document.getElementById('videoPlayer');
+      Reveal.addEventListener('fragmentshown', function() {
+          var slide = Reveal.getCurrentSlide();
+          if (slide.id == 'video_slide') {
+            var v = document.getElementById('video_player');
 
-          // Remove the video controls
-          if (v.hasAttribute("controls")) {
-            v.removeAttribute("controls")
-          }
-
-          // Enter full screen
-          if (v.requestFullscreen) {
-            v.requestFullscreen();
-          }
-          else if (v.mozRequestFullScreen) {
-            v.mozRequestFullScreen();
-          }
-          else if (v.webkitRequestFullscreen) {
-            v.webkitRequestFullscreen();
-          }
-
-          // Play the video
-          v.play();
-
-          // On exit, leave fullscreen and advance the slide
-          v.addEventListener('ended', function videoEndedHandler(e) {
-            if (document.exitFullscreen) {
-              document.exitFullscreen();
-            } else if (document.mozCancelFullScreen) {
-              document.mozCancelFullScreen();
-            } else if (document.webkitCancelFullScreen) {
-              document.webkitCancelFullScreen();
+            // Remove the video controls
+            if (v.hasAttribute("controls")) {
+              v.removeAttribute("controls")
             }
-            Reveal.next();
-          }, false);
+
+            // Enter full screen
+            if (v.requestFullscreen) {
+              v.requestFullscreen();
+            }
+            else if (v.mozRequestFullScreen) {
+              v.mozRequestFullScreen();
+            }
+            else if (v.webkitRequestFullscreen) {
+              v.webkitRequestFullscreen();
+            }
+
+            // Play the video
+            v.play();
+
+            // On exit, leave fullscreen and advance the slide
+            v.addEventListener('ended', function videoEndedHandler(e) {
+              if (document.exitFullscreen) {
+                document.exitFullscreen();
+              } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+              } else if (document.webkitCancelFullScreen) {
+                document.webkitCancelFullScreen();
+              }
+              Reveal.next();
+            }, false);
+         }
       }, false );
     </script>
 
