@@ -93,6 +93,12 @@
           <p>grizzly shoutouts</p>
         </section>
 
+        <section data-state="video">
+          <video id="videoPlayer" controls>
+            <source src=videos/small.ogv type=video/ogg>
+          </video>
+        </section>
+
         <section fullscreen-img="pics/shadowman.jpg" fullscreen-size="contain">
           <h3 class="invert middle">20 Years of Disruption</h3>
         </section>
@@ -454,6 +460,11 @@
           { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
         ]
       });
+
+      Reveal.addEventListener( 'video', function() {
+          var v = document.getElementById('videoPlayer');
+          v.play();
+      }, false );
     </script>
 
     <div class="footer" class="share-reveal" style="position: absolute; bottom: 10px; left: 50%; margin-left: -200px; z-index: 20;">
