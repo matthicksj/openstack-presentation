@@ -94,7 +94,7 @@
         </section>
 
         <section data-state="video">
-          <video id="videoPlayer" controls>
+          <video id="videoPlayer">
             <source src=videos/small.ogv type=video/ogg>
           </video>
         </section>
@@ -463,7 +463,37 @@
 
       Reveal.addEventListener( 'video', function() {
           var v = document.getElementById('videoPlayer');
+
+          // Remove the video controls
+          if (v.hasAttribute("controls")) {
+            v.removeAttribute("controls")
+          }
+
+          // Enter full screen
+          if (v.requestFullscreen) {
+            v.requestFullscreen();
+          }
+          else if (v.mozRequestFullScreen) {
+            v.mozRequestFullScreen();
+          }
+          else if (v.webkitRequestFullscreen) {
+            v.webkitRequestFullscreen();
+          }
+
+          // Play the video
           v.play();
+
+          // On exit, leave fullscreen and advance the slide
+          v.addEventListener('ended', function videoEndedHandler(e) {
+            if (document.exitFullscreen) {
+              document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+              document.mozCancelFullScreen();
+            } else if (document.webkitCancelFullScreen) {
+              document.webkitCancelFullScreen();
+            }
+            Reveal.next();
+          }, false);
       }, false );
     </script>
 
