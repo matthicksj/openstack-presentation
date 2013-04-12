@@ -378,10 +378,11 @@ div.color { color: red; }
 
           <section>
             <section id="video_slide" data-state="video">
-              <video id="video_player">
+              <h3>OpenShift on OpenStack</h3>
+              <video id="video_player" width="640" height="480">
                 <source src=videos/demo.ogv type=video/ogg>
+                <source src=videos/demo.mp4 type=video/mp4>
               </video>
-              <p><em>This is a test video and not the actual video that goes here.</em></p>
               <div class="fragment"></div>
             </section>
           </section>
@@ -448,11 +449,6 @@ div.color { color: red; }
           var slide = Reveal.getCurrentSlide();
           if (slide.id == 'video_slide') {
             var v = document.getElementById('video_player');
-
-            // Remove the video controls
-            if (v.hasAttribute("controls")) {
-              v.removeAttribute("controls")
-            }
 
             // Enter full screen
             if (v.requestFullscreen) {
