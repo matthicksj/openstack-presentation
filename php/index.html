@@ -18,8 +18,8 @@ div.color { color: red; }
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-    <link rel="stylesheet" href="css/theme/redhat.css" id="theme">
     <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/redhat.css" id="theme">
 
     <!-- For syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -42,8 +42,7 @@ div.color { color: red; }
         <style>
           .intro .reveal h3 {
             font-size: 2.8em;
-            margin-top: 30px;
-	    margin-bottom: 25px;
+            margin-top: 100px;
           }
 
           .intro .reveal h4 {
@@ -79,8 +78,7 @@ div.color { color: red; }
         </style>
 
         <section data-state="intro">
-          <h2>OpenStack @Red&nbsp;Hat</h2>
-	  <br />
+          <h3>OpenStack @Red&nbsp;Hat</h3>
           <h4>OpenStack Summit 2013</h4>
           <h5>Brian Stevens, <a href="http://twitter.com/addvin">@addvin</a></h5>
           <h5>CTO, VP Worldwide Engineering, Red Hat</h5>
@@ -96,7 +94,7 @@ div.color { color: red; }
         </section>
 
         <section>
-          <h3 class="middle2"><b>BEFORE</b> we talk about <b>TODAY</b>. . .</h3>
+          <h2 class="middle2"><b>BEFORE</b> we talk about <b>TODAY</b>. . .</h2>
         </section>
 
         <section>
@@ -250,7 +248,7 @@ div.color { color: red; }
           </section>
 
         <section>
-          <h3>Cloud without open source software?</h3>
+          <h4>Cloud without open source software?</h4>
           <ul>
             <li>No Amazon</li>
             <li>No Rackspace</li>
@@ -285,12 +283,12 @@ div.color { color: red; }
         </section>
 
         <section>
-          <h3>To get RDO, go here:</h3>
+          <h3 class="middle2">To get RDO, go here:</h3>
           <p class="fragment"><a href="https://openstack.redhat.com">openstack.redhat.com</a></p>
         </section>
 
         <section>
-          <h2 class="middle">What about customers?</h2>
+          <h2 class="middle2">What about customers?</h2>
         </section>
 
         <section>
@@ -379,8 +377,13 @@ div.color { color: red; }
           </section>
 
           <section>
-	    <iframe class="youtube-player" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/1FszWXy-eoI?html5=1" frameborder="0"></iframe>
-	    <p><em>This is a test video and not the actual video that goes here.</em></p>
+            <section id="video_slide" data-state="video">
+              <video id="video_player">
+                <source src=videos/demo.ogv type=video/ogg>
+              </video>
+              <p><em>This is a test video and not the actual video that goes here.</em></p>
+              <div class="fragment"></div>
+            </section>
           </section>
 
         <section>
@@ -399,7 +402,7 @@ div.color { color: red; }
         </section>
 
         <section>
-          <h3 class="middle">Some faces of Grizzly</h3>
+          <h3>Some faces of Grizzly</h3>
 	  <iframe class="youtube-player" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/1FszWXy-eoI?html5=1" frameborder="0"></iframe>
         </section>
 
@@ -440,6 +443,44 @@ div.color { color: red; }
           { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
         ]
       });
+
+      Reveal.addEventListener('fragmentshown', function() {
+          var slide = Reveal.getCurrentSlide();
+          if (slide.id == 'video_slide') {
+            var v = document.getElementById('video_player');
+
+            // Remove the video controls
+            if (v.hasAttribute("controls")) {
+              v.removeAttribute("controls")
+            }
+
+            // Enter full screen
+            if (v.requestFullscreen) {
+              v.requestFullscreen();
+            }
+            else if (v.mozRequestFullScreen) {
+              v.mozRequestFullScreen();
+            }
+            else if (v.webkitRequestFullscreen) {
+              v.webkitRequestFullscreen();
+            }
+
+            // Play the video
+            v.play();
+
+            // On exit, leave fullscreen and advance the slide
+            v.addEventListener('ended', function videoEndedHandler(e) {
+              if (document.exitFullscreen) {
+                document.exitFullscreen();
+              } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+              } else if (document.webkitCancelFullScreen) {
+                document.webkitCancelFullScreen();
+              }
+              Reveal.next();
+            }, false);
+         }
+      }, false );
     </script>
 
     <div class="footer" class="share-reveal" style="position: absolute; bottom: 10px; left: 50%; margin-left: -200px; z-index: 20;">
